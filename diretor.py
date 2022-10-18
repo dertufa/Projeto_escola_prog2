@@ -6,15 +6,19 @@ import base
 class Diretor:
 
 	def __init__(self):
-		print("1 - Cadastrar Aluno")
-		print("2 - Ver Nota de Aluno")
-		opcoes_diretor = int(input("Selecione uma opção:"))
+		while True:
+			print("1 - Cadastrar Aluno")
+			print("2 - Ver Nota de Aluno")
+			print("3 - Sair")
+			opcoes_diretor = int(input("Selecione uma opção:"))
 
-		self.opcoes_diretor = opcoes_diretor
-		if self.opcoes_diretor == 1:
-			self.cadastrar_aluno()
-		if self.opcoes_diretor == 2:
-			self.ver_nota_diretor()
+			self.opcoes_diretor = opcoes_diretor
+			if self.opcoes_diretor == 1:
+				self.cadastrar_aluno()
+			if self.opcoes_diretor == 2:
+				self.ver_nota_diretor()
+			if opcoes_diretor ==3:
+				break
 
 	def cadastrar_aluno(self):
 		aluno_cadastro = input("Insira o nome do aluno:")

@@ -73,6 +73,7 @@ while True:
 				d = Diretor()
 			else:
 				print("Login Invalido!")
+			break
 	if escolhe_login == 5:
 		break
 
