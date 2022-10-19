@@ -99,11 +99,13 @@ class Diretor:
 		#Deleta o aluno da tabela aluno
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'Delete * FROM aluno WHERE cpf_aluno = "{aluno_deletado}"'
+		comando = f'DELETE * FROM aluno WHERE cpf_aluno = "{aluno_deletado}"'
 		cursor.execute(comando)
 		aluno_deletado = cursor.fetchall()
 		cursor.close()
 		conexao.close()
+		
+		
 		#nao acabei ainda
 		
 	
