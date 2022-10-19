@@ -69,7 +69,49 @@ class Diretor:
 		print(resultado)
 		cursor.close()
 		conexao.close()
+	
+	def remover_aluno(self):
+		#Pega o cpf do aluno que vai ser deletado
 
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		comando = f'SELECT * FROM aluno'
+		cursor.execute(comando)
+		resultado = cursor.fetchall()
+		print("=========================================")
+		print("Índice / Aluno / Responsável / CPF")
+		print("=========================================")
+		for i in resultado:
+			print(i)
+			print("=========================================")
+		cursor.close()
+		conexao.close()
+		diretor_deleta = input("Digite o indice do aluno a ser EXCLUIDO")
+		
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		comando = f'SELECT cpf_aluno FROM aluno WHERE id_aluno = "{diretor_deleta}"'
+		cursor.execute(comando)
+		aluno_deletado = cursor.fetchall()
+		cursor.close()
+		conexao.close()
+		
+		#Deleta o aluno da tabela aluno
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		comando = f'Delete * FROM aluno WHERE cpf_aluno = "{aluno_deletado}"'
+		cursor.execute(comando)
+		aluno_deletado = cursor.fetchall()
+		cursor.close()
+		conexao.close()
+		#nao acabei ainda
+		
+	
+	
+	
+	
+	
+		
 	#def adicionar_disciplinas(self):
 	#	comando = f'INSERT INTO aluno (nome_aluno, responsavel_aluno, disciplinas_aluno) VALUES ("{aluno_cadastro}", "{responsavel_cadastro}", "{disciplinas_cadastro}")'
 	#	conexao = base.obter_conexao()
