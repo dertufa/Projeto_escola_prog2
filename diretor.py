@@ -101,7 +101,8 @@ class Diretor:
 		cursor = conexao.cursor()
 		comando = f'DELETE * FROM aluno WHERE cpf_aluno = "{aluno_deletado}"'
 		cursor.execute(comando)
-		aluno_deletado = cursor.fetchall()
+		conexao.commit()
+		#falta colocar a parte de verificar se ele excluiu mesmo 
 		cursor.close()
 		conexao.close()
 		
