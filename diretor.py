@@ -21,18 +21,30 @@ class Diretor:
 				break
 
 	def cadastrar_aluno(self):
-		aluno_cadastro = input("Insira o nome do aluno:")
-		responsavel_cadastro = input("Insira o nome do responsável")
-		cpf_cadastro_aluno = input("Insira o cpf do aluno")
-		comando = f'INSERT INTO aluno (nome_aluno, responsavel_aluno, cpf_aluno) VALUES ("{aluno_cadastro}", "{responsavel_cadastro}", "{cpf_cadastro_aluno}")'
+		nome_aluno_cadastro = input("Insira o nome do aluno:")
+		cpf_cadastro_aluno = input("Insira o CPF do aluno:")
+
+		#cadastra as infromações na tabela aluno
+		comando = f'INSERT INTO aluno (nome_aluno, cpf_aluno, nome_responsavel_aluno, cpf_responsavel_aluno) VALUES ("{nome_aluno_cadastro}", "{cpf_cadastro_aluno}", "{nome_responsavel_cadastro}","{cpf_responsavel_cadastro}")'
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
 		cursor.execute(comando)
 		conexao.commit()
 		cursor.close()
 		conexao.close()
+		input("Aluno Cadastrado com sucesso, pressione qualquer tecla para continuar...")
 
-
+		nome_responsavel_cadastro = input("Insira o nome do responsável:")
+		cpf_responsavel_cadastro = input("Insira o CPF do responsavel:")
+		#cadastra as informações na tabela responsavel
+		comando = f'INSERT INTO responsavel (nome_responsavel,cpf_responsavel, aluno_responsavel) VALUES ("{nome_responsavel_cadastro}", "{cpf_responsavel_cadastro}", "{nome_aluno_cadastro}")'
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		cursor.execute(comando)
+		conexao.commit()
+		cursor.close()
+		conexao.close()
+		input("Responsavel Cadastrado com sucesso, pressione qualquer tecla para continuar...")
 
 	def ver_nota_diretor(self):
 		conexao = base.obter_conexao()

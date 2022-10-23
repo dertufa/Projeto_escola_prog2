@@ -26,7 +26,7 @@ class Professor():
 	def ver_nota_professor(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT id_avaliacoes AND nome_aluno AND id_disciplina AND nota FROM avaliacoes WHERE id_disciplina = "{self.disciplina_professor}"'
+		comando = f'SELECT id_avaliacoes AND nome_aluno AND disciplina AND nota FROM avaliacoes WHERE disciplina = "{self.disciplina_professor}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()  # Ler o banco de dados
 		print("=========================================")

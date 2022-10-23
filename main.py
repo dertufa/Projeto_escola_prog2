@@ -16,7 +16,12 @@ while True:
 	escolhe_login = int(input("Selecione o tipo de login:"))
 
 	if escolhe_login == 1:
-		nome_aluno = input("Digite ")
+		nome_login_aluno = input("Digite o seu nome ")
+		nome_login_aluno = nome_login_aluno.lower()
+		cpf_login_aluno = input("Digite o seu CPF")
+		conexao = obter_conexao()
+		cursor = conexao.cursor()
+
 
 	if escolhe_login == 2:
 		while True:

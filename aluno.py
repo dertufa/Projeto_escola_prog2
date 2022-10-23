@@ -1,7 +1,26 @@
+import base
 class Aluno():
-	def __init__(self, id_aluno, nome_aluno,suspenso, disciplina_aluno):
-		self.id_aluno = id_aluno
+	def __init__(self,nome_aluno, cpf_aluno):
 		self.nome_aluno = nome_aluno
-		self.suspenso = suspenso
-		self.disciplina_aluno = disciplina_aluno
-	#def (self):
+		self.cpf_aluno = cpf_aluno
+		while True:
+			print("1 - Ver notas")
+			print("2 - Ver recados")
+			print("3 - Sair")
+			opcoes_aluno = input("Selecione uma opção:")
+			if opcoes_aluno == 1:
+				self.ver_nota_aluno()
+			if opcoes_aluno ==3:
+				break
+	def ver_nota_aluno (self):
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		comando = f'SELECT disciplina AND tipo_avaliacao AND nota FROM avaliacoes WHERE cpf_aluno = "{self.cpf_aluno}"'
+		cursor.execute(comando)
+		resultado = cursor.fetchall()
+		print("=========================================")
+		print("    Disciplina  /   Tipo   /    Nota    ")
+		print("=========================================")
+		for i in resultado:
+			print(i)
+			print("=========================================")
