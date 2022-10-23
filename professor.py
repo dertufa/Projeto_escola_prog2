@@ -14,7 +14,7 @@ class Professor():
 			print("1 - Inserir as notas dos alunos")
 			print("2 - Ver as notas dos alunos")
 			print("3 - Enviar recado para um responsavel")
-			print("4 - Voltar ao menu de login")
+			print("4 - Sair")
 			opcoes_professor = int(input("Selecione uma opção:"))
 			if opcoes_professor == 1:
 				Professor.inserir_nota(self)
@@ -26,7 +26,7 @@ class Professor():
 	def ver_nota_professor(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT id_avaliacoes AND nome_aluno AND disciplina AND nota FROM avaliacoes WHERE disciplina = "{self.disciplina_professor}"'
+		comando = f'SELECT id_avaliacoes , nome_aluno , disciplina , nota FROM avaliacoes WHERE disciplina = "{self.disciplina_professor}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()  # Ler o banco de dados
 		print("=========================================")
@@ -43,11 +43,11 @@ class Professor():
 	def inserir_nota(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT * FROM aluno'
+		comando = f'SELECT id_aluno , nome_aluno,  cpf_aluno FROM aluno'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
-		print("Índice / Aluno / Responsável")
+		print("Índice / Aluno / CPF")
 		print("=========================================")
 		for i in resultado:
 			print(i)
@@ -64,8 +64,20 @@ class Professor():
 		cursor.close()
 		conexao.close()
 
+
+		print("1 - Prova")
+		print("2 - Teste")
+		print("3 - Trabalho")
+		escolhe_tipo_avaliacao = int(input("Selecione o tipo da avaliação"))
+		if escolhe_tipo_avaliacao ==1:
+			tipo_avaliacao = "prova"
+		elif escolhe_tipo_avaliacao ==2:
+			tipo_avaliacao = "teste"
+		elif escolhe_tipo_avaliacao ==3:
+			tipo_avaliacao = "trabalho"
+
 		p_nota_aluno = float(input("Insira a nota desse aluno:"))
-		comando = f'INSERT INTO avaliacoes (nome_aluno, id_disciplina,nota, id_aluno) VALUES ("{nome_aluno_inserir_nota}", "{self.disciplina_professor}","{p_nota_aluno}","{p_seleciona_aluno}")'
+		comando = f'INSERT INTO avaliacoes (nome_aluno, disciplina,tipo_avaliacao ,nota) VALUES ("{nome_aluno_inserir_nota}", "{self.disciplina_professor}","{tipo_avaliacao}","{p_nota_aluno}")'
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
 		cursor.execute(comando)

@@ -23,6 +23,8 @@ class Diretor:
 	def cadastrar_aluno(self):
 		nome_aluno_cadastro = input("Insira o nome do aluno:")
 		cpf_cadastro_aluno = input("Insira o CPF do aluno:")
+		nome_responsavel_cadastro = input("Insira o nome do responsável:")
+		cpf_responsavel_cadastro = input("Insira o CPF do responsavel:")
 
 		#cadastra as infromações na tabela aluno
 		comando = f'INSERT INTO aluno (nome_aluno, cpf_aluno, nome_responsavel_aluno, cpf_responsavel_aluno) VALUES ("{nome_aluno_cadastro}", "{cpf_cadastro_aluno}", "{nome_responsavel_cadastro}","{cpf_responsavel_cadastro}")'
@@ -34,8 +36,6 @@ class Diretor:
 		conexao.close()
 		input("Aluno Cadastrado com sucesso, pressione qualquer tecla para continuar...")
 
-		nome_responsavel_cadastro = input("Insira o nome do responsável:")
-		cpf_responsavel_cadastro = input("Insira o CPF do responsavel:")
 		#cadastra as informações na tabela responsavel
 		comando = f'INSERT INTO responsavel (nome_responsavel,cpf_responsavel, aluno_responsavel) VALUES ("{nome_responsavel_cadastro}", "{cpf_responsavel_cadastro}", "{nome_aluno_cadastro}")'
 		conexao = base.obter_conexao()
@@ -44,12 +44,11 @@ class Diretor:
 		conexao.commit()
 		cursor.close()
 		conexao.close()
-		input("Responsavel Cadastrado com sucesso, pressione qualquer tecla para continuar...")
 
 	def ver_nota_diretor(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT * FROM aluno'
+		comando = f'SELECT id_aluno, nome_aluno , cpf_aluno  ,nome_responsavel_aluno FROM aluno'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
@@ -58,11 +57,11 @@ class Diretor:
 		for i in resultado:
 			print(i)
 			print("=========================================")
-		cpf_consulta_diretor = input("Digite o CPF do aluno que você deseja ver a nota:")
-		disciplina_consulta_diretor = input("Digite o nome da  disciplina que você deseja ver a nota ")
 		cursor.close()
 		conexao.close()
 
+		cpf_consulta_diretor = input("Digite o CPF do aluno que você deseja ver a nota:")
+		disciplina_consulta_diretor = input("Digite o nome da  disciplina que você deseja ver a nota ")
 		disciplina_consulta_diretor = disciplina_consulta_diretor.lower()
 
 		conexao = base.obter_conexao()
@@ -75,7 +74,7 @@ class Diretor:
 
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT * FROM avaliacoes WHERE cpf_aluno ="{cpf_consulta_diretor}" AND id_disciplina = "{disciplina_consulta_diretor}"'
+		comando = f'SELECT * FROM avaliacoes WHERE cpf_aluno ="{cpf_consulta_diretor}" AND disciplina = "{disciplina_consulta_diretor}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print(resultado)
@@ -87,11 +86,11 @@ class Diretor:
 
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT * FROM aluno'
+		comando = f'SELECT (id_aluno, nome_aluno , cpf_aluno , nome_responsavel_aluno) FROM aluno'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
-		print("Índice / Aluno / Responsável / CPF")
+		print("Índice / Aluno / CPF / Responsável")
 		print("=========================================")
 		for i in resultado:
 			print(i)

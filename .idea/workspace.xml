@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="">
+    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="o diretor agora realiza o cadastro tanto do aluno como do responsavel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aluno.py" beforeDir="false" afterPath="$PROJECT_DIR$/aluno.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diretor.py" beforeDir="false" afterPath="$PROJECT_DIR$/diretor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/professor.py" beforeDir="false" afterPath="$PROJECT_DIR$/professor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666135401712</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="o diretor agora realiza o cadastro tanto do aluno como do responsavel">
+      <created>1666544132530</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666544132530</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -157,6 +163,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arrumei o bug do diretor.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="arrumei o bug do diretor.py" />
+    <MESSAGE value="o diretor agora realiza o cadastro tanto do aluno como do responsavel" />
+    <option name="LAST_COMMIT_MESSAGE" value="o diretor agora realiza o cadastro tanto do aluno como do responsavel" />
   </component>
 </project>

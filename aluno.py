@@ -15,7 +15,7 @@ class Aluno():
 	def ver_nota_aluno (self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT disciplina AND tipo_avaliacao AND nota FROM avaliacoes WHERE cpf_aluno = "{self.cpf_aluno}"'
+		comando = f'SELECT (disciplina , tipo_avaliacao , nota) FROM avaliacoes WHERE cpf_aluno = "{self.cpf_aluno}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
