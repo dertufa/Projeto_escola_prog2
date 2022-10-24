@@ -1,6 +1,6 @@
 import base
 class Aluno():
-	def __init__(self,nome_aluno, cpf_aluno):
+	def __init__(self,nome_aluno ,cpf_aluno):
 		self.nome_aluno = nome_aluno
 		self.cpf_aluno = cpf_aluno
 		while True:
@@ -24,3 +24,4 @@ class Aluno():
 		for i in resultado:
 			print(i)
 			print("=========================================")
+		input("Pressione qualquer tecla para continuar...")

@@ -1,10 +1,9 @@
-#import os
 from base import obter_conexao
 #import MySQLdb
 from responsavel import Responsavel
 from professor import Professor
 from diretor import Diretor
-
+from aluno import Aluno
 
 while True:
 
@@ -16,18 +15,10 @@ while True:
 	escolhe_login = int(input("Selecione o tipo de login:"))
 
 	if escolhe_login == 1:
-		nome_login_aluno = input("Digite o seu nome ")
-		nome_login_aluno = nome_login_aluno.lower()
-		cpf_login_aluno = input("Digite o seu CPF")
-		conexao = obter_conexao()
-		cursor = conexao.cursor()
-
-
-	if escolhe_login == 2:
 		while True:
-			nome_login_responsavel = input("Digite seu nome:")
-			nome_login_responsavel = nome_login_responsavel.lower()
-			cpf_login_reponsavel = input("Digite seu cpf:")
+			nome_login_aluno = input("Digite o seu nome ")
+			nome_login_aluno = nome_login_aluno.lower()
+			cpf_login_aluno = input("Digite o seu CPF")
 
 			conexao = obter_conexao()
 			cursor = conexao.cursor()
@@ -37,9 +28,26 @@ while True:
 			cursor.close()
 			conexao.close()
 			for i in range(len(resultado)):
+				if nome_login_aluno in resultado[i] and cpf_login_aluno in resultado[i]:
+					a = Aluno(nome_login_aluno, cpf_login_aluno)
+
+	if escolhe_login == 2:
+		while True:
+			nome_login_responsavel = input("Digite seu nome:")
+			nome_login_responsavel = nome_login_responsavel.lower()
+			cpf_login_reponsavel = input("Digite seu cpf:")
+
+			conexao = obter_conexao()
+			cursor = conexao.cursor()
+			comando = 'SELECT nome_aluno, cpf_aluno FROM aluno'
+			cursor.execute(comando)
+			resultado = cursor.fetchall()
+			cursor.close()
+			conexao.close()
+			for i in range(len(resultado)):
 				if nome_login_responsavel in resultado[i] and cpf_login_reponsavel in resultado[i]:
 					r = Responsavel()
-
+			break
 	if escolhe_login == 3:
 		while True:
 			print("Login Professor")
@@ -63,6 +71,7 @@ while True:
 					cursor.close()
 					conexao.close()
 					p = Professor(nome_login_professor, senha_login_professor,disciplina)
+					break
 				else:
 					print("Login incorreto")
 			break

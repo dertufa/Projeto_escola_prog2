@@ -26,19 +26,19 @@ class Professor():
 	def ver_nota_professor(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT id_avaliacoes , nome_aluno , disciplina , nota FROM avaliacoes WHERE disciplina = "{self.disciplina_professor}"'
+		comando = f'SELECT id_avaliacoes , nome_aluno , disciplina ,tipo_avaliacao, nota FROM avaliacoes WHERE disciplina = "{self.disciplina_professor}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()  # Ler o banco de dados
-		print("=========================================")
-		print("Indice   Aluno           Disciplina  Nota")
-		print("=========================================")
+		print("=======================================================")
+		print("Indice   Aluno           Disciplina     Avaliação  Nota")
+		print("=======================================================")
 
 		for i in resultado:
 			print(i)
 			print("=========================================")
 		cursor.close()
 		conexao.close()
-
+		input("Pressione qualquer tecla para continuar...")
 
 	def inserir_nota(self):
 		conexao = base.obter_conexao()
@@ -84,3 +84,4 @@ class Professor():
 		conexao.commit()
 		cursor.close()
 		conexao.close()
+		input("Nota inserida! pressione qualquer tecla para continuar...")
