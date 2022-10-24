@@ -52,8 +52,10 @@ class Diretor:
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
-		print("Índice / Aluno / Responsável / CPF")
+		print("Índice / Aluno / CPF / Responsável")
 		print("=========================================")
+		print(resultado[1])
+		print(resultado[2])
 		for i in resultado:
 			print(i)
 			print("=========================================")
@@ -74,7 +76,7 @@ class Diretor:
 
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
-		comando = f'SELECT * FROM avaliacoes WHERE cpf_aluno ="{cpf_consulta_diretor}" AND disciplina = "{disciplina_consulta_diretor}"'
+		comando = f'SELECT * FROM avaliacoes WHERE cpf_aluno ="{cpf_consulta_diretor}"'
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print(resultado)

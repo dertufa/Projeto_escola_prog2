@@ -16,13 +16,13 @@ while True:
 
 	if escolhe_login == 1:
 		while True:
-			nome_login_aluno = input("Digite o seu nome ")
+			nome_login_aluno = input("Digite o seu nome:")
 			nome_login_aluno = nome_login_aluno.lower()
-			cpf_login_aluno = input("Digite o seu CPF")
+			cpf_login_aluno = input("Digite o seu CPF:")
 
 			conexao = obter_conexao()
 			cursor = conexao.cursor()
-			comando = 'SELECT nome_responsavel, cpf_responsavel FROM responsavel'
+			comando = 'SELECT nome_aluno, cpf_aluno FROM aluno'
 			cursor.execute(comando)
 			resultado = cursor.fetchall()
 			cursor.close()
@@ -30,7 +30,9 @@ while True:
 			for i in range(len(resultado)):
 				if nome_login_aluno in resultado[i] and cpf_login_aluno in resultado[i]:
 					a = Aluno(nome_login_aluno, cpf_login_aluno)
-
+					break
+				elif i == len(resultado):
+					print("Login não encontrado!!!")
 	if escolhe_login == 2:
 		while True:
 			nome_login_responsavel = input("Digite seu nome:")
@@ -47,7 +49,12 @@ while True:
 			for i in range(len(resultado)):
 				if nome_login_responsavel in resultado[i] and cpf_login_reponsavel in resultado[i]:
 					r = Responsavel()
+					break
+				elif i == len(resultado):
+					print("Login não encontrado!!!")
 			break
+
+
 	if escolhe_login == 3:
 		while True:
 			print("Login Professor")
@@ -72,8 +79,8 @@ while True:
 					conexao.close()
 					p = Professor(nome_login_professor, senha_login_professor,disciplina)
 					break
-				else:
-					print("Login incorreto")
+
+			print("Login incorreto")
 			break
 
 
