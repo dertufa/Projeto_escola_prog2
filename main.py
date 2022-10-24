@@ -33,6 +33,7 @@ while True:
 					break
 				elif i == len(resultado):
 					print("Login não encontrado!!!")
+			break
 	if escolhe_login == 2:
 		while True:
 			nome_login_responsavel = input("Digite seu nome:")

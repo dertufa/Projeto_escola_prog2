@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="me perdi ja">
+    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aluno.py" beforeDir="false" afterPath="$PROJECT_DIR$/aluno.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diretor.py" beforeDir="false" afterPath="$PROJECT_DIR$/diretor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/professor.py" beforeDir="false" afterPath="$PROJECT_DIR$/professor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666571990713</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei">
+      <created>1666638548173</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666638548173</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -190,6 +195,33 @@
     <MESSAGE value="o diretor agora realiza o cadastro tanto do aluno como do responsavel" />
     <MESSAGE value="Fiz muita coisa kkkk lembro mais não" />
     <MESSAGE value="me perdi ja" />
-    <option name="LAST_COMMIT_MESSAGE" value="me perdi ja" />
+    <MESSAGE value="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei" />
+    <option name="LAST_COMMIT_MESSAGE" value="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diretor.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diretor.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diretor.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diretor.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

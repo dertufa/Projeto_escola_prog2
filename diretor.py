@@ -9,15 +9,21 @@ class Diretor:
 		while True:
 			print("1 - Cadastrar Aluno")
 			print("2 - Ver Nota de Aluno")
-			print("3 - Sair")
+			print("3 - Mandar Recado")
+			print("4 - Sair")
 			opcoes_diretor = int(input("Selecione uma opção:"))
-
 			self.opcoes_diretor = opcoes_diretor
+
 			if self.opcoes_diretor == 1:
 				self.cadastrar_aluno()
+
 			if self.opcoes_diretor == 2:
 				self.ver_nota_diretor()
-			if opcoes_diretor ==3:
+
+			if self.opcoes_diretor == 3:
+				self.mandar_recado()
+
+			if self.opcoes_diretor == 4:
 				break
 
 	def cadastrar_aluno(self):
@@ -84,7 +90,6 @@ class Diretor:
 		conexao.close()
 	
 	def remover_aluno(self):
-		#Pega o cpf do aluno que vai ser deletado
 
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
@@ -99,7 +104,7 @@ class Diretor:
 			print("=========================================")
 		cursor.close()
 		conexao.close()
-		diretor_deleta = input("Digite o indice do aluno a ser EXCLUIDO")
+		diretor_deleta = input("Digite o indice do aluno a ser EXCLUIDO:")
 		
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
@@ -119,20 +124,74 @@ class Diretor:
 		cursor.close()
 		conexao.close()
 		
-		
-		#nao acabei ainda
-		
-	
-	
-	
-	
-	
-		
-	#def adicionar_disciplinas(self):
-	#	comando = f'INSERT INTO aluno (nome_aluno, responsavel_aluno, disciplinas_aluno) VALUES ("{aluno_cadastro}", "{responsavel_cadastro}", "{disciplinas_cadastro}")'
-	#	conexao = base.obter_conexao()
-	#	cursor = conexao.cursor()
-	#	cursor.execute(comando)
-	#	conexao.commit()
-	#	cursor.close()
-	#	conexao.close()
+	def mandar_recado(self):
+		conexao = base.obter_conexao()
+		cursor = conexao.cursor()
+		comando = f'SELECT id_aluno, nome_aluno , cpf_aluno , nome_responsavel_aluno FROM aluno'
+		cursor.execute(comando)
+		resultado = cursor.fetchall()
+		print("=========================================")
+		print("Índice / Aluno / CPF / Responsável")
+		print("=========================================")
+		for i in resultado:
+			print(i)
+			print("=========================================")
+		cursor.close()
+		conexao.close()
+		diretor_recado = input("Digite o indice do aluno para enviar um recado:")
+		print("1 - Aluno")
+		print("2 - Responsavel")
+		escolhe_recado = int(input("Quem ira receber o recado?:"))
+		titulo_recado = input("Digite o titulo do recado:")
+		texto_recado = input("Digite o recado(limite de 144 characteres):")
+
+		if escolhe_recado ==1:
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			comando = f'SELECT nome_aluno  FROM aluno WHERE id_aluno = "{diretor_recado}"'
+			cursor.execute(comando)
+			nome_aluno_receptor = cursor.fetchall()
+			cursor.close()
+			conexao.close()
+
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			comando = f'SELECT cpf_aluno  FROM aluno WHERE id_aluno = "{diretor_recado}"'
+			cursor.execute(comando)
+			cpf_aluno_receptor = cursor.fetchall()
+			cursor.close()
+			conexao.close()
+
+			comando = f'INSERT INTO recado (nome_aluno,nome_professor, titulo_recado, recado, cpf_receptor) VALUES ( "{nome_aluno_receptor}", "diretor", "{titulo_recado}","{texto_recado}","{cpf_aluno_receptor}")'
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			cursor.execute(comando)
+			conexao.commit()
+			cursor.close()
+			conexao.close()
+
+		if escolhe_recado ==2:
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			comando = f'SELECT nome_aluno  FROM aluno WHERE id_aluno = "{diretor_recado}"'
+			cursor.execute(comando)
+			nome_responsavel_receptor = cursor.fetchall()
+			cursor.close()
+			conexao.close()
+
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			comando = f'SELECT cpf_aluno  FROM aluno WHERE id_aluno = "{diretor_recado}"'
+			cursor.execute(comando)
+			cpf_responsavel_receptor = cursor.fetchall()
+			cursor.close()
+			conexao.close()
+
+
+			comando = f'INSERT INTO recado (nome_aluno,nome_professor, titulo_recado, recado, cpf_receptor) VALUES ( "{nome_responsavel_receptor}", "diretor", "{titulo_recado}","{texto_recado}","{cpf_responsavel_receptor}")'
+			conexao = base.obter_conexao()
+			cursor = conexao.cursor()
+			cursor.execute(comando)
+			conexao.commit()
+			cursor.close()
+			conexao.close()
