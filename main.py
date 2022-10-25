@@ -1,4 +1,3 @@
-import mysql.connector
 from base import obter_conexao
 from responsavel import Responsavel
 from professor import Professor
