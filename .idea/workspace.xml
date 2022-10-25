@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei">
+    <list default="true" id="3e507518-28b2-425f-b8e1-6a86fd78993e" name="Changes" comment="Ainda falta resolver o recado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aluno.py" beforeDir="false" afterPath="$PROJECT_DIR$/aluno.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diretor.py" beforeDir="false" afterPath="$PROJECT_DIR$/diretor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666638548173</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ainda falta resolver o recado">
+      <created>1666653084456</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666653084456</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -196,7 +200,8 @@
     <MESSAGE value="Fiz muita coisa kkkk lembro mais não" />
     <MESSAGE value="me perdi ja" />
     <MESSAGE value="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei" />
-    <option name="LAST_COMMIT_MESSAGE" value="HAHAHAHHAHHA PASSEI 2 DIAS PRA CORRIGIR UM BUG HAHAHAH getulhei" />
+    <MESSAGE value="Ainda falta resolver o recado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ainda falta resolver o recado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
