@@ -9,8 +9,7 @@ class Diretor:
 		while True:
 			print("1 - Cadastrar Aluno")
 			print("2 - Ver Nota de Aluno")
-			print("3 - Mandar Recado")
-			print("4 - Sair")
+			print("3 - Sair")
 			opcoes_diretor = int(input("Selecione uma opção:"))
 			self.opcoes_diretor = opcoes_diretor
 
@@ -124,6 +123,7 @@ class Diretor:
 		cursor.close()
 		conexao.close()
 		
+	'''
 	def mandar_recado(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()
@@ -195,3 +195,4 @@ class Diretor:
 			conexao.commit()
 			cursor.close()
 			conexao.close()
+	'''
