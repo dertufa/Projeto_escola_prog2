@@ -13,8 +13,7 @@ class Professor():
 		while True:
 			print("1 - Inserir as notas dos alunos")
 			print("2 - Ver as notas dos alunos")
-			print("3 - Enviar recado para um responsavel")
-			print("4 - Sair")
+			print("3 - Sair")
 			opcoes_professor = int(input("Selecione uma opção:"))
 			if opcoes_professor == 1:
 				Professor.inserir_nota(self)
@@ -39,7 +38,6 @@ class Professor():
 		cursor.close()
 		conexao.close()
 		input("Pressione qualquer tecla para continuar...")
-
 	def inserir_nota(self):
 		conexao = base.obter_conexao()
 		cursor = conexao.cursor()

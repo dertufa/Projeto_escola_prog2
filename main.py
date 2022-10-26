@@ -1,5 +1,4 @@
 from base import obter_conexao
-#import MySQLdb
 from responsavel import Responsavel
 from professor import Professor
 from diretor import Diretor
@@ -16,6 +15,7 @@ while True:
 
 	if escolhe_login == 1:
 		while True:
+			print("================ LOGIN ALUNO ================")
 			nome_login_aluno = input("Digite o seu nome:")
 			nome_login_aluno = nome_login_aluno.lower()
 			cpf_login_aluno = input("Digite o seu CPF:")
@@ -36,20 +36,21 @@ while True:
 			break
 	if escolhe_login == 2:
 		while True:
+			print("================ LOGIN RESPONSAVEL ================")
 			nome_login_responsavel = input("Digite seu nome:")
 			nome_login_responsavel = nome_login_responsavel.lower()
 			cpf_login_reponsavel = input("Digite seu cpf:")
 
 			conexao = obter_conexao()
 			cursor = conexao.cursor()
-			comando = 'SELECT nome_aluno, cpf_aluno FROM aluno'
+			comando = 'SELECT nome_responsavel_aluno, cpf_responsavel_aluno FROM aluno'
 			cursor.execute(comando)
 			resultado = cursor.fetchall()
 			cursor.close()
 			conexao.close()
 			for i in range(len(resultado)):
 				if nome_login_responsavel in resultado[i] and cpf_login_reponsavel in resultado[i]:
-					r = Responsavel()
+					r = Responsavel(nome_login_responsavel,cpf_login_reponsavel)
 					break
 				elif i == len(resultado):
 					print("Login não encontrado!!!")
@@ -58,7 +59,7 @@ while True:
 
 	if escolhe_login == 3:
 		while True:
-			print("Login Professor")
+			print("================ LOGIN PROFESSOR ================")
 			nome_login_professor = input("Digite seu nome:")
 			senha_login_professor = input("Digite sua senha:")
 			conexao = obter_conexao()
@@ -88,6 +89,8 @@ while True:
 
 	if escolhe_login == 4:
 		while True:
+			print("================ LOGIN DIRETOR ================")
+
 			usuario_diretor = input("Digite seu usuario:")
 			usuario_diretor = usuario_diretor.lower()
 			senha_diretor = int(input("Digite sua senha:"))
