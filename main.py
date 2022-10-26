@@ -52,8 +52,8 @@ while True:
 				if nome_login_responsavel in resultado[i] and cpf_login_reponsavel in resultado[i]:
 					r = Responsavel(nome_login_responsavel,cpf_login_reponsavel)
 					break
-				elif i == len(resultado):
-					print("Login não encontrado!!!")
+			if i == len(resultado):
+				print("Login não encontrado!!!")
 			break
 
 
@@ -77,9 +77,12 @@ while True:
 					comando = f'SELECT disciplina FROM professor WHERE nome_professor = "{nome_login_professor}"'
 					cursor.execute(comando)
 					disciplina = cursor.fetchall()
+					disciplina = disciplina[0]
+					disciplina = disciplina[0]
+					print(disciplina)
 					cursor.close()
 					conexao.close()
-					p = Professor(nome_login_professor, senha_login_professor,disciplina)
+					p = Professor(nome_login_professor, senha_login_professor, disciplina)
 					break
 
 			print("Login incorreto")

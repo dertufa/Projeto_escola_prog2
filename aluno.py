@@ -14,7 +14,8 @@ class Aluno():
 				self.ver_recados()
 			if opcoes_aluno == 3:
 				break
-
+			if opcoes_aluno > 3 or opcoes_aluno < 1:
+				print("Opção Invalida")
 	def ver_nota_aluno(self):
 		comando = f'SELECT disciplina ,tipo_avaliacao,nota FROM avaliacoes WHERE cpf_aluno = "{self.cpf_aluno}"'
 		conexao = base.obter_conexao()

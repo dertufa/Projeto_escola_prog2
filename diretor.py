@@ -20,10 +20,9 @@ class Diretor:
 				self.ver_nota_diretor()
 
 			if self.opcoes_diretor == 3:
-				self.mandar_recado()
-
-			if self.opcoes_diretor == 4:
 				break
+			if self.opcoes_diretor > 3 or self.opcoes_diretor < 1:
+				print("Opção Invalida")
 
 	def cadastrar_aluno(self):
 		nome_aluno_cadastro = input("Insira o nome do aluno:")
@@ -57,12 +56,11 @@ class Diretor:
 		cursor.execute(comando)
 		resultado = cursor.fetchall()
 		print("=========================================")
-		print("Índice / Aluno / CPF / Responsável")
+		print("Índice / Aluno /     CPF     /    Responsável")
 		print("=========================================")
-		print(resultado[1])
-		print(resultado[2])
 		for i in resultado:
-			print(i)
+			lista = list(i)
+			print("  ",lista[0]," " ,lista[1],"   " , lista[2],"   " ,lista[3])
 			print("=========================================")
 		cursor.close()
 		conexao.close()
@@ -122,7 +120,12 @@ class Diretor:
 		#falta colocar a parte de verificar se ele excluiu mesmo 
 		cursor.close()
 		conexao.close()
-		
+
+
+
+
+
+
 	'''
 	def mandar_recado(self):
 		conexao = base.obter_conexao()
